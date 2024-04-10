@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestaurantManagementSystem", "RestaurantManagementSystem\RestaurantManagementSystem.csproj", "{93897FDA-A608-4F8C-B789-F239C845F2BB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{738260CB-0559-4A82-A83C-8240B291A1E6}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\Downloads\ADD-IMAGE.png = ..\..\..\Downloads\ADD-IMAGE.png
+		..\..\..\Downloads\bills.png = ..\..\..\Downloads\bills.png
+		..\..\..\Downloads\BILLS.webp = ..\..\..\Downloads\BILLS.webp
+		..\..\..\Downloads\BIN-IMAGE.jpg = ..\..\..\Downloads\BIN-IMAGE.jpg
+		..\..\..\Downloads\HISTORY.png = ..\..\..\Downloads\HISTORY.png
+		..\..\..\Downloads\LOGOUT.png = ..\..\..\Downloads\LOGOUT.png
+		..\..\..\Downloads\menu-image.jpg = ..\..\..\Downloads\menu-image.jpg
+		..\..\..\Downloads\tables-image.png = ..\..\..\Downloads\tables-image.png
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{93897FDA-A608-4F8C-B789-F239C845F2BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93897FDA-A608-4F8C-B789-F239C845F2BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93897FDA-A608-4F8C-B789-F239C845F2BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93897FDA-A608-4F8C-B789-F239C845F2BB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {47D59900-C377-436B-8640-012F05B9E6FE}
+	EndGlobalSection
+EndGlobal

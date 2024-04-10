@@ -1,0 +1,214 @@
+﻿<UserControl x:Class="RestaurantManagementSystem.DashboardContent"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:RestaurantManagementSystem"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <UserControl.Resources>
+        <local:CategoryToImageConverter x:Key="CategoryToImageConverter"/>
+    </UserControl.Resources>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="150"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Search Bar and Tables Dropdown -->
+        <Grid Grid.Row="0">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
+                <Button x:Name="RefreshButton" Margin="5" BorderBrush="red" FontSize="15" Background="#410111" Cursor="Hand">
+                    <Image Source="pack://application:,,,/RestaurantManagementSystem;component/Images/refresh.png" Width="40" Height="40" />
+                </Button>
+            </StackPanel>
+
+
+            <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+
+                <Border CornerRadius="10" BorderBrush="#4285F4" BorderThickness="1" Width="450" Height="45" Margin="10,5">
+                    <TextBox Width="430" Height="auto" FontSize="15" BorderThickness="0" Padding="0 10 0 10"
+                     Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}"
+                     TextChanged="TextBox_TextChanged"/>
+                </Border>
+
+            </StackPanel>
+
+            <StackPanel Grid.Column="2" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right">
+                <Button Content="New Bill" Width="100" Height="35" Background="Green" Foreground="White" Margin="0,0,10,0" Click="NewOrderButton_Click"/>
+            </StackPanel>
+
+        </Grid>
+
+        <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled">
+            <ItemsControl ItemsSource="{Binding TableItems}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Horizontal" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border x:Name="TableCard" BorderThickness="1" Margin="5" Width="auto" Height="auto" CornerRadius="10">
+                            <Border.Style>
+                                <Style TargetType="Border">
+                                    <Setter Property="Background" Value="White" />
+                                    <!-- Default background color -->
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding Status}" Value="Available">
+                                            <Setter Property="Background" Value="#110077FF" />
+                                            <Setter Property="BorderBrush" Value="#0077FF" />
+                                            <!-- Change background and border for Available status -->
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding Status}" Value="Occupied">
+                                            <Setter Property="Background" Value="#1100CC66" />
+                                            <Setter Property="BorderBrush" Value="#00CC66" />
+                                            <!-- Change background and border for Occupied status -->
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding Status}" Value="Reserved">
+                                            <Setter Property="Background" Value="#11FFD700" />
+                                            <Setter Property="BorderBrush" Value="#FFD700" />
+                                            <!-- Change background and border for Reserved status -->
+                                        </DataTrigger>
+                                        <!-- Add more DataTriggers for other status values if needed -->
+                                    </Style.Triggers>
+                                </Style>
+                            </Border.Style>
+
+                            <Grid Width="Auto">
+                                <Border BorderThickness="1" BorderBrush="Transparent" CornerRadius="5" Padding="0">
+                                    <Grid>
+
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="auto"/>
+                                            <RowDefinition Height="auto"/>
+                                        </Grid.RowDefinitions>
+
+                                        <StackPanel Margin="5 5 5 0" Grid.Row="0" Orientation="Horizontal">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                </Grid.ColumnDefinitions>
+
+                                                <!-- Left Section: TableId and TableType -->
+                                                <StackPanel Grid.Column="0" Orientation="Vertical" Margin="0 0 20 0">
+                                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0">
+                                                        <Button Width="12" Height="12" Margin="0 0 3 0" Cursor="Hand" Background="#0077FF" Style="{StaticResource NoHoverButtonStyle}" Click="ChangeStatusToAvailable_Click"/>
+                                                        <Button Width="12" Height="12" Margin="0 0 3 0" Cursor="Hand" Background="#00CC66" Style="{StaticResource NoHoverButtonStyle}" Click="ChangeStatusToOccupied_Click"/>
+                                                        <Button Width="12" Height="12" Cursor="Hand" Background="#FFD700" Style="{StaticResource NoHoverButtonStyle}" Click="ChangeStatusToReserved_Click"/>
+                                                    </StackPanel>
+                                                    <TextBlock Text="{Binding TableId}" FontWeight="Bold" HorizontalAlignment="Center" FontSize="18"/>
+                                                    <TextBlock Text="{Binding TableType}" FontSize="14" Foreground="Gray" HorizontalAlignment="Center"/>
+                                                </StackPanel>
+
+                                                <!-- Middle Section: Status Buttons and Display -->
+                                                <StackPanel Grid.Column="1" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+
+                                                    <TextBlock Text="{Binding Status, UpdateSourceTrigger=PropertyChanged}" FontWeight="Normal" FontSize="18" VerticalAlignment="Center" Margin="0 20 0 10"/>
+
+                                                </StackPanel>
+
+                                                <!-- Right Section: SeatingCapacity -->
+                                                <StackPanel Grid.Column="2" Orientation="Vertical" HorizontalAlignment="Right" Margin="20 10 0 0">
+                                                    <TextBlock Text="{Binding SeatingCapacity}" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18"/>
+                                                    <TextBlock Text="Seats" FontSize="16" Foreground="Gray" VerticalAlignment="Bottom"/>
+                                                </StackPanel>
+                                            </Grid>   
+                                        </StackPanel>
+                                     
+
+                                    </Grid>
+                                </Border>
+                            </Grid>
+
+
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+
+            </ItemsControl>
+        </ScrollViewer>
+
+
+
+
+        <ListView Grid.Row="2" x:Name="MenuItemsControl" ItemsSource="{Binding MenuItems}" BorderBrush="Transparent" Background="Transparent">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Menu ID" Width="60">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding MenuItemId}" FontWeight="Bold" FontSize="16"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Name" Width="100">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Name}" FontWeight="Bold" FontSize="16"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="AC Price (Half)" Width="120">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding ACPriceHalf, StringFormat='{}{0:C}'}" FontSize="16"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="AC Price (Full)" Width="120">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding ACPriceFull, StringFormat='{}{0:C}'}" FontSize="16"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Non-AC Price (Half)" Width="150">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding NonACPriceHalf, StringFormat='{}{0:C}'}" FontSize="16"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Non-AC Price (Full)" Width="150">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding NonACPriceFull, StringFormat='{}{0:C}'}" FontSize="16"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Note" Width="250">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Note}" FontSize="16"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Category" Width="150">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Width="20" Height="20" Source="{Binding Category, Converter={StaticResource CategoryToImageConverter}}"/>
+                                    <TextBlock Text="{Binding Category}" FontSize="16" Margin="5"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+ 
+    </Grid>
+</UserControl>

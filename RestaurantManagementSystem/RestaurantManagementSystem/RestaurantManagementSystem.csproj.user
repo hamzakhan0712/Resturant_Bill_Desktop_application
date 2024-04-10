@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <ApplicationDefinition Update="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="AddMenuItemCard.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="AddTableCard.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Bill.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="BillsContent.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="DashboardContent.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="EditMenuItemCard.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="EditTableCard.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="MenuContent.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Navbar.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="SalesContent.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="SplashScreen.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="TablesContent.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UserManage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="AddMenuItemCard.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="AddTableCard.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Bill.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="BillsContent.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="DashboardContent.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="EditMenuItemCard.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="EditTableCard.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MenuContent.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Navbar.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="SalesContent.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="SplashScreen.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="TablesContent.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserManage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>

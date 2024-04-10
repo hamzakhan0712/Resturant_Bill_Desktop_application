@@ -1,0 +1,71 @@
+﻿<UserControl x:Class="RestaurantManagementSystem.EditMenuItemCard"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:RestaurantManagementSystem">
+
+    <!-- Replace these with your preferred layout and styling -->
+    <Border x:Name="MenuItemCard" BorderBrush="DarkGreen" BorderThickness="1" Margin="0 0 0 10" CornerRadius="4">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <!-- Add more rows as needed for each field -->
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <!-- Close Button -->
+            <Button x:Name="CloseClick" Click="CloseClick_Click" Content="X" HorizontalAlignment="Left" VerticalAlignment="Top" BorderThickness="0" Background="Transparent" Foreground="Red" Margin="5 0" FontSize="15" Cursor="Hand"/>
+
+            <!-- Name -->
+            <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="40,5 5 5" VerticalAlignment="Center" HorizontalAlignment="Left">
+                <TextBlock Text="Name:" Margin="0 0 5 3" VerticalAlignment="Top" FontSize="12"/>
+                <TextBox x:Name="TxtBoxNewItemName" BorderThickness="1" FontSize="14" Width="200" Margin="5 0 5 5" Padding="5"/>
+            </StackPanel>
+
+            <!-- Category ComboBox -->
+            <ComboBox x:Name="CategoryComboBox" Grid.Row="2" Width="200" Height="35" Margin="40 5 5 5">
+                <ComboBoxItem Content="Veg"/>
+                <ComboBoxItem Content="Non-Veg"/>
+                <ComboBoxItem Content="Drinks"/>
+                <ComboBoxItem Content="Dessert"/>
+                <!-- Add more ComboBoxItems for each category -->
+            </ComboBox>
+
+            <!-- Note -->
+            <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="40 5 5 5">
+                <TextBlock Text="Note:" Margin="0 0 5 0" VerticalAlignment="Top" FontSize="12"/>
+                <TextBox x:Name="TxtBoxNote" BorderThickness="1" FontSize="14" Width="200" Margin="5 0 5 5" Padding="3"/>
+            </StackPanel>
+
+            <!-- AC Price (Half) -->
+            <StackPanel Grid.Row="4" Orientation="Horizontal" Margin="40 5 5 5">
+                <TextBlock Text="AC Price (Half):" Margin="0 0 5 3" VerticalAlignment="Top" FontSize="12"/>
+                <TextBox x:Name="TxtBoxNewItemACPriceHalf" BorderThickness="1" FontSize="14" Width="200" Margin="5 0 5 5" Padding="5"/>
+            </StackPanel>
+
+            <!-- AC Price (Full) -->
+            <StackPanel Grid.Row="5" Orientation="Horizontal" Margin="40 5 5 5">
+                <TextBlock Text="AC Price (Full):" Margin="0 0 5 3" VerticalAlignment="Top" FontSize="12"/>
+                <TextBox x:Name="TxtBoxNewItemACPriceFull" BorderThickness="1" FontSize="14" Width="200" Margin="5 0 5 5" Padding="5"/>
+            </StackPanel>
+
+            <!-- Non-AC Price (Half) -->
+            <StackPanel Grid.Row="6" Orientation="Horizontal" Margin="40 5 5 5">
+                <TextBlock Text="Non-AC Price (Half):" Margin="0 0 5 3" VerticalAlignment="Top" FontSize="12"/>
+                <TextBox x:Name="TxtBoxNewItemNonACPriceHalf" BorderThickness="1" FontSize="14" Width="200" Margin="5 0 5 5" Padding="5"/>
+            </StackPanel>
+
+            <!-- Non-AC Price (Full) -->
+            <StackPanel Grid.Row="7" Orientation="Horizontal" Margin="40 5 5 5">
+                <TextBlock Text="Non-AC Price (Full):" Margin="0 0 5 3" VerticalAlignment="Top" FontSize="12"/>
+                <TextBox x:Name="TxtBoxNewItemNonACPriceFull" BorderThickness="1" FontSize="14" Width="200" Margin="5 0 5 5" Padding="5"/>
+            </StackPanel>
+
+            <!-- Save Button -->
+            <Button x:Name="SaveClick" Click="SaveButton_Click" Content="Save" Padding="10 0 10 0" Foreground="#4285F4" HorizontalAlignment="Right" FontSize="15" FontWeight="Normal" VerticalAlignment="Bottom" Margin="10" Grid.Row="8"/>
+        </Grid>
+    </Border>
+</UserControl>

@@ -1,0 +1,20 @@
+﻿<Window x:Class="RestaurantManagementSystem.SplashScreen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="SplashScreen" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
+    <Grid>
+  
+        <Image Source="pack://application:,,,/RestaurantManagementSystem;component/Images/SplashBackground.png" Stretch="UniformToFill"/>
+
+        <Grid>
+ 
+            <Image Source="pack://application:,,,/RestaurantManagementSystem;component/Images/logo-img.png" Width="150" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20"/>
+
+            <TextBlock Text="IgniTech" FontSize="100" FontWeight="Medium" Foreground="LightYellow"
+                       HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,20,0,0"/>
+        </Grid>
+
+        <TextBlock Text="2023" FontSize="40" Foreground="AntiqueWhite"
+                   HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,20,20"/>
+    </Grid>
+</Window>

@@ -1,0 +1,54 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon>logo.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Images\.jpg" />
+    <None Remove="Images\ajwa-logo.png" />
+    <None Remove="Images\bin.png" />
+    <None Remove="Images\dessert.png" />
+    <None Remove="Images\drinks.png" />
+    <None Remove="Images\history.png" />
+    <None Remove="Images\logo.ico" />
+    <None Remove="Images\logout.png" />
+    <None Remove="Images\menu.png" />
+    <None Remove="Images\non-veg.png" />
+    <None Remove="Images\refresh.png" />
+    <None Remove="Images\search.png" />
+    <None Remove="Images\SplashBackground.png" />
+    <None Remove="Images\tables.png" />
+    <None Remove="Images\veg.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MahApps.Metro" Version="2.4.10" />
+    <PackageReference Include="System.Data.SQLite" Version="1.0.118" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\ajwa-logo.png" />
+    <Resource Include="Images\bills.png" />
+    <Resource Include="Images\bin.png" />
+    <Resource Include="Images\dessert.png" />
+    <Resource Include="Images\drinks.png" />
+    <Resource Include="Images\history.png" />
+    <Resource Include="Images\logo-img.png" />
+    <Resource Include="Images\non-veg.png" />
+    <Resource Include="Images\refresh.png" />
+    <Resource Include="Images\SplashBackground.png" />
+    <Resource Include="Images\veg.png" />
+    <Resource Include="logo.ico" />
+    <Resource Include="Images\logout.png" />
+    <Resource Include="Images\menu.png" />
+    <Resource Include="Images\search.png" />
+    <Resource Include="Images\tables.png" />
+  </ItemGroup>
+
+</Project>

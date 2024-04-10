@@ -1,0 +1,125 @@
+﻿<UserControl x:Class="RestaurantManagementSystem.Bill"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:RestaurantManagementSystem"
+             mc:Ignorable="d" 
+             d:DesignHeight="800" d:DesignWidth="600">
+
+    <Grid Margin="15">
+        <Grid.RowDefinitions>
+            <!-- Header -->
+            <RowDefinition Height="Auto" />
+            <!-- Bill details -->
+            <RowDefinition Height="Auto" />
+            <!-- Ordered items -->
+            <RowDefinition Height="*" />
+            <!-- Summary -->
+            <RowDefinition Height="Auto" />
+            <!-- Footer -->
+            <RowDefinition Height="Auto" />
+            <!-- Buttons -->
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!-- Bill details -->
+        <StackPanel Grid.Row="1">
+            <!-- Left column -->
+            <StackPanel Orientation="Vertical">
+          
+                <!-- Bill No -->
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Bill No: " FontSize="15" FontWeight="Medium"/>
+                    <TextBox Width="200" FontSize="15"/>
+                </StackPanel>
+                <!-- Table No -->
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Table No: " FontSize="15" FontWeight="Medium"/>
+                    <TextBox Width="200" FontSize="15"/>
+                </StackPanel>
+                <!-- Table Type -->
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Table Type: " FontSize="15" FontWeight="Medium"/>
+                    <TextBox Width="200" FontSize="15"/>
+                </StackPanel>
+                <!-- Customer Name -->
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Customer Name: " FontSize="15" FontWeight="Medium"/>
+                    <TextBox Width="200" FontSize="15"/>
+                </StackPanel>
+                <!-- Phone Number -->
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Phone Number: " FontSize="15" FontWeight="Medium"/>
+                    <TextBox Width="200" FontSize="15"/>
+                </StackPanel>
+            </StackPanel>
+
+            <!-- Ordered items -->
+            <DataGrid x:Name="OrderedItemsGrid" AutoGenerateColumns="False" Margin="0,15,0,0" ItemsSource="{Binding OrderedItems}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Food Item" Binding="{Binding FoodItem}" Width="*" FontSize="15" FontWeight="Medium"/>
+                    <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}" Width="Auto" FontSize="15" FontWeight="Medium"/>
+                    <DataGridTextColumn Header="Price" Binding="{Binding Price}" Width="Auto" FontSize="15" FontWeight="Medium"/>
+                    <!-- Other columns as needed -->
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <!-- Summary section -->
+          <Separator Margin="0,15,0,10" HorizontalAlignment="Stretch"/>
+    <StackPanel Margin="0,15,0,0">
+        <!-- Total Items -->
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="Total Items: " FontSize="15" FontWeight="Medium"/>
+            <TextBox Width="200" FontSize="15"/>
+        </StackPanel>
+        <!-- Subtotal -->
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="Subtotal: " FontSize="15" FontWeight="Medium"/>
+            <TextBox Width="200" FontSize="15"/>
+        </StackPanel>
+        <!-- SGST -->
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="SGST: " FontSize="15" FontWeight="Medium"/>
+            <TextBox Width="200" FontSize="15"/>
+        </StackPanel>
+        <!-- CGST -->
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="CGST: " FontSize="15" FontWeight="Medium"/>
+            <TextBox Width="200" FontSize="15"/>
+        </StackPanel>
+        <!-- Total -->
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="Total: " FontWeight="Bold" FontSize="18"/>
+            <!-- Placeholder for total amount -->
+            <TextBox Width="200" FontSize="15"/>
+        </StackPanel>
+        <!-- Payment Status -->
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="Payment Status: " FontSize="15" FontWeight="Medium"/>
+            <TextBox Width="200" FontSize="15"/>
+        </StackPanel>
+        <!-- Order Type -->
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="Order Type: " FontSize="15" FontWeight="Medium"/>
+            <TextBox Width="200" FontSize="15"/>
+        </StackPanel>
+        <!-- Address -->
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="Address (if applicable): " FontSize="15" FontWeight="Medium"/>
+            <TextBox Width="200" FontSize="15"/>
+        </StackPanel>
+    </StackPanel>
+
+
+            <!-- Footer section -->
+            <TextBlock Text="THANK YOU! VISIT AGAIN!" HorizontalAlignment="Center" FontStyle="Italic" Margin="0,20,0,0" FontSize="16"/>
+        </StackPanel>
+
+        <!-- Buttons -->
+        <StackPanel Grid.Row="5" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,0">
+            <Button Content="Print" Width="120" Margin="10" FontSize="16" FontWeight="Medium"/>
+            <Button Content="Reset" Width="120" Margin="10" FontSize="16" FontWeight="Medium"/>
+        </StackPanel>
+    </Grid>
+</UserControl>
